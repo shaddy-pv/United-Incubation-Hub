@@ -7,45 +7,45 @@ export const SuccessStoriesSection = () => {
 
   const stories = [
     {
-      name: "QuantumTech Solutions",
-      logo: "QT",
-      industry: "AI & Machine Learning",
-      description: "Revolutionary AI platform for predictive analytics in healthcare.",
+      name: "Ishita Singh",
+      logo: "SZ",
+      industry: "Shipizen",
+      description: "We had the privilege of experiencing the Pre-incubation services offered & had a remarkable experience working at UIH. Their dedicated team and comprehensive resources make UIH an ideal platform for transforming ideas into successful businesses. Thank you, UIH, for being a pillar of support on our entrepreneurial journey.",
       achievements: {
-        funding: "$15M Series A",
-        team: "45 employees",
-        launched: "2022"
+        funding: "------",
+        team: "------",
+        launched: "------"
       },
       quote: "United Incubation Hub transformed our vision into reality. Their mentorship and resources were instrumental in our Series A success.",
-      founder: "Dr. Sarah Chen, CEO",
+      founder: "Ishita Singh, CEO",
       gradient: "from-primary to-secondary"
     },
     {
-      name: "EcoVerse",
-      logo: "EV",
-      industry: "Sustainability Tech",
-      description: "IoT solutions for smart energy management and carbon footprint reduction.",
+      name: "Pradeep Singh",
+      logo: "ECS",
+      industry: "ECS",
+      description: "At UIH, we got a wonderful infra support along with a platform for networking with other startups of the region incubated at UIH. The team is highly experienced and very supportive. Best place in Prayagraj to kick-start your Startup.",
       achievements: {
-        funding: "$8M Seed Round",
-        team: "28 employees",
-        launched: "2023"
+        funding: "------",
+        team: "------",
+        launched: "------"
       },
       quote: "The holistic support system at UIH helped us navigate complex technical challenges and scale rapidly across markets.",
-      founder: "Marcus Rodriguez, CTO",
+      founder: "Pradeep Singh, Director Compliance",
       gradient: "from-secondary to-accent"
     },
     {
-      name: "NeuralLink Dynamics",
-      logo: "ND",
-      industry: "BioTech",
-      description: "Next-generation brain-computer interfaces for medical applications.",
+      name: "Rishabh Dubey",
+      logo: "GR",
+      industry: "Grihani",
+      description: "At UIH, we got a wonderful infra support along with a platform for networking with other startups of the region incubated at UIH. The team is highly experienced and very supportive. Best place in Prayagraj to kick-start your Startup.",
       achievements: {
-        funding: "$25M Series B",
-        team: "67 employees",
-        launched: "2021"
+        funding: "------",
+        team: "------",
+        launched: "------"
       },
       quote: "UIH's network of investors and industry experts opened doors we never thought possible. Truly a game-changer.",
-      founder: "Prof. Elena Vasquez, Founder",
+      founder: "Rishabh Dubey, Founder & CEO",
       gradient: "from-accent to-primary"
     }
   ];

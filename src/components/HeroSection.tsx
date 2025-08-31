@@ -1,44 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, Zap } from "lucide-react";
 import heroBackground from "@/assets/hero-bg.jpg";
-import heroVideo from "@/assets/hero-video.mp4";
-import { useState } from "react";
 
 export const HeroSection = () => {
-  const [videoLoaded, setVideoLoaded] = useState(false);
-
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Video - Desktop Only */}
-      <div className="absolute inset-0 hidden md:block">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          poster={heroBackground}
-          onLoadedData={() => setVideoLoaded(true)}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-            videoLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <source src={heroVideo} type="video/mp4" />
-          
-          {/* Fallback to image if video fails */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ 
-              backgroundImage: `url(${heroBackground})`,
-            }}
-          />
-        </video>
-        <div className="absolute inset-0 bg-gradient-hero/90" />
-        <div className="absolute inset-0 particle-bg opacity-30" />
-      </div>
-
-      {/* Background Image - Mobile Only */}
-      <div className="absolute inset-0 md:hidden">
+      {/* Background */}
+      <div className="absolute inset-0">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ 

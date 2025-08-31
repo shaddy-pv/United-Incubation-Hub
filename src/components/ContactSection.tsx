@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Send, Twitter, Linkedin, Github } from "lucide-react";
+import imp4Logo from "@/assets/imp4.png";
+import logo2 from "@/assets/logo2.png";
 
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -187,6 +189,17 @@ export const ContactSection = () => {
               <span className="text-white font-orbitron font-bold text-sm">UI</span>
             </div>
             <span className="font-orbitron font-bold text-foreground">United Incubation Hub</span>
+            &nbsp; &nbsp;
+            <img 
+               src={imp4Logo} 
+               alt="IMP4 Logo" 
+               className="w-20 h-20 object-contain"
+            />&nbsp; &nbsp;
+            <img 
+               src={logo2} 
+               alt="Logo 2" 
+               className="w-20 h-20 object-contain"
+            />
           </div>
           
           <p className="text-sm text-muted-foreground font-poppins text-center md:text-right">

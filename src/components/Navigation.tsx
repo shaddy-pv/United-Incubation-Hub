@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-
+import imp4Logo from "@/assets/imp4.png";
+import logo2 from "@/assets/logo2.png";
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -24,7 +25,12 @@ export const Navigation = () => {
             </div>
             <span className="text-xl font-orbitron font-bold text-foreground">
               United Incubation Hub
-            </span>
+            </span> &nbsp; &nbsp;
+            <img 
+               src={logo2} 
+               alt="Logo 2" 
+               className="w-20 h-20 object-contain"
+            />
           </div>
 
           {/* Desktop Navigation */}
