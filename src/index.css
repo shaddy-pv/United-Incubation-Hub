@@ -144,11 +144,45 @@ All colors MUST be HSL.
     box-shadow: var(--glow-pink);
   }
   
+  /* 3D Transformations */
+  .transform-style-preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .hover\:rotate-y-2:hover {
+    transform: rotateY(2deg);
+  }
+  
+  .hover\:rotate-x-1:hover {
+    transform: rotateX(1deg);
+  }
+  
+  .hover\:translate-z-4:hover {
+    transform: translateZ(16px);
+  }
+  
   /* Holographic Border */
   .holographic-border {
     background: var(--gradient-holographic);
     padding: 1px;
     border-radius: var(--radius);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .holographic-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: holographic-scan 3s linear infinite;
   }
   
   .holographic-border > * {
@@ -156,11 +190,106 @@ All colors MUST be HSL.
     border-radius: calc(var(--radius) - 1px);
   }
   
+  /* Cyberpunk Glitch Effects */
+  .glitch-text {
+    position: relative;
+    animation: glitch 2s infinite;
+  }
+  
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .glitch-text::before {
+    animation: glitch-1 0.3s infinite;
+    color: #ff00ff;
+    z-index: -1;
+  }
+  
+  .glitch-text::after {
+    animation: glitch-2 0.3s infinite;
+    color: #00ffff;
+    z-index: -2;
+  }
+  
+  /* Enhanced Particle Background */
+  .particle-bg {
+    background-image: 
+      radial-gradient(2px 2px at 20px 30px, hsl(var(--neon-blue)), transparent),
+      radial-gradient(2px 2px at 40px 70px, hsl(var(--neon-purple)), transparent),
+      radial-gradient(1px 1px at 90px 40px, hsl(var(--neon-pink)), transparent),
+      radial-gradient(1px 1px at 130px 80px, hsl(var(--neon-cyan)), transparent),
+      radial-gradient(1.5px 1.5px at 160px 120px, hsl(var(--neon-blue)), transparent),
+      radial-gradient(1px 1px at 200px 60px, hsl(var(--neon-purple)), transparent);
+    background-repeat: repeat;
+    background-size: 200px 150px;
+    animation: float 25s ease-in-out infinite;
+  }
+  
+  /* Holographic Scan Animation */
+  @keyframes holographic-scan {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+  
+  /* Enhanced Glitch Animations */
+  @keyframes glitch-1 {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+  }
+  
+  @keyframes glitch-2 {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(2px, -2px); }
+    40% { transform: translate(2px, 2px); }
+    60% { transform: translate(-2px, -2px); }
+    80% { transform: translate(-2px, 2px); }
+  }
+  
+  /* Enhanced Float Animation */
+  @keyframes float {
+    0%, 100% { 
+      transform: translateY(0px) rotate(0deg); 
+      opacity: 0.7;
+    }
+    50% { 
+      transform: translateY(-15px) rotate(180deg); 
+      opacity: 1;
+    }
+  }
+  
   /* Animated Lines */
   .animated-line {
     background: var(--gradient-neon);
     background-size: 200% 100%;
     animation: shimmer 3s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .animated-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    animation: line-scan 2s linear infinite;
+  }
+  
+  @keyframes line-scan {
+    0% { left: -100%; }
+    100% { left: 100%; }
   }
   
   @keyframes shimmer {
@@ -168,20 +297,53 @@ All colors MUST be HSL.
     50% { background-position: 100% 50%; }
   }
   
-  /* Particle Background */
-  .particle-bg {
-    background-image: 
-      radial-gradient(2px 2px at 20px 30px, hsl(var(--neon-blue)), transparent),
-      radial-gradient(2px 2px at 40px 70px, hsl(var(--neon-purple)), transparent),
-      radial-gradient(1px 1px at 90px 40px, hsl(var(--neon-pink)), transparent),
-      radial-gradient(1px 1px at 130px 80px, hsl(var(--neon-cyan)), transparent);
-    background-repeat: repeat;
-    background-size: 150px 100px;
-    animation: float 20s ease-in-out infinite;
+  /* Slide Up Animation */
+  .slide-up {
+    animation: slide-up 0.6s ease-out;
   }
   
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+  @keyframes slide-up {
+    0% { transform: translateY(100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  
+  /* Fade In Animation */
+  .fade-in {
+    animation: fade-in 1s ease-out;
+  }
+  
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  /* Holographic Button Effect */
+  .holographic-button {
+    position: relative;
+    overflow: hidden;
+    background: var(--gradient-holographic);
+    background-size: 200% 200%;
+    animation: holographic-shift 3s ease-in-out infinite;
+  }
+  
+  .holographic-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: button-scan 2s linear infinite;
+  }
+  
+  @keyframes holographic-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  @keyframes button-scan {
+    0% { left: -100%; }
+    100% { left: 100%; }
   }
 }

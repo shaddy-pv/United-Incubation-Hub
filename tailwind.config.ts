@@ -127,8 +127,10 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'glow-pulse': 'glow-pulse 3s ease-in-out infinite',
+				'glow-pulse': 'glow-pulse 8s ease-in-out infinite',
+				'glow-pulse-slow': 'glow-pulse 12s ease-in-out infinite',
 				'float': 'float 6s ease-in-out infinite',
+				'float-slow': 'float 24s ease-in-out infinite',
 				'shimmer': 'shimmer 3s ease-in-out infinite',
 				'slide-up': 'slide-up 0.6s ease-out',
 				'fade-in': 'fade-in 1s ease-out'

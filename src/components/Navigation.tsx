@@ -19,18 +19,14 @@ export const Navigation = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-holographic rounded-lg flex items-center justify-center">
-              <span className="text-white font-orbitron font-bold text-sm">UIH</span>
+          <div className="flex items-center space-x-2 group">
+            <div className="w-8 h-8 bg-gradient-holographic rounded-lg flex items-center justify-center relative overflow-hidden">
+              <span className="text-white font-orbitron font-bold text-sm relative z-10">UIH</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-holographic-scan"></div>
             </div>
-            <span className="text-xl font-orbitron font-bold text-foreground">
+            <span className="text-xl font-orbitron font-bold text-foreground group-hover:text-primary transition-colors duration-300">
               United Incubation Hub
-            </span> &nbsp; &nbsp;
-            <img 
-               src={logo2} 
-               alt="Logo 2" 
-               className="w-20 h-20 object-contain"
-            />
+            </span>
           </div>
 
           {/* Desktop Navigation */}

@@ -1,8 +1,48 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, Zap } from "lucide-react";
 import heroBackground from "@/assets/hero-bg.jpg";
+import { useState, useEffect } from "react";
 
 export const HeroSection = () => {
+  const [counts, setCounts] = useState({
+    startups: -100,
+    preStartups: -100,
+    mentors: -100,
+    events: -100
+  });
+
+  useEffect(() => {
+    const targetCounts = { startups: 9, preStartups: 3, mentors: 10, events: 6 };
+    const duration = 1000; // 1 second
+    const steps = 60;
+    const stepDuration = duration / steps;
+
+    const timer = setInterval(() => {
+      setCounts(prev => {
+        const newCounts = { ...prev };
+        let allComplete = true;
+
+        Object.keys(targetCounts).forEach(key => {
+          const target = targetCounts[key as keyof typeof targetCounts];
+          const current = prev[key as keyof typeof prev];
+          
+          if (current < target) {
+            newCounts[key as keyof typeof newCounts] = Math.min(current + Math.ceil(target / steps), target);
+            allComplete = false;
+          }
+        });
+
+        if (allComplete) {
+          clearInterval(timer);
+        }
+
+        return newCounts;
+      });
+    }, stepDuration);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background */}
@@ -47,32 +87,40 @@ export const HeroSection = () => {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up">
           <Button variant="hero" size="xl" className="group">
-            <Zap className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
+            <Zap className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
             Start Your Journey
-            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
           </Button>
           <Button variant="neon" size="xl">
             Explore Programs
           </Button>
         </div>
 
-        {/* Stats */}
+        {/* Stats with Counting Animation */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-20 animate-fade-in">
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-orbitron font-bold text-primary mb-2">09</div>
-            <div className="text-muted-foreground font-poppins">Incubated Startups</div>
+          <div className="text-center group cursor-pointer">
+            <div className="text-3xl md:text-4xl font-orbitron font-bold text-primary mb-2 group-hover:text-accent transition-all duration-300 group-hover:scale-110">
+              {counts.startups}
+            </div>
+            <div className="text-muted-foreground font-poppins group-hover:text-foreground transition-colors duration-300">Incubated Startups</div>
           </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-orbitron font-bold text-secondary mb-2">03</div>
-            <div className="text-muted-foreground font-poppins">Pre-Incubated Startups</div>
+          <div className="text-center group cursor-pointer">
+            <div className="text-3xl md:text-4xl font-orbitron font-bold text-secondary mb-2 group-hover:text-primary transition-all duration-300 group-hover:scale-110">
+              {counts.preStartups}
+            </div>
+            <div className="text-muted-foreground font-poppins group-hover:text-foreground transition-colors duration-300">Pre-Incubated Startups</div>
           </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-orbitron font-bold text-accent mb-2">10</div>
-            <div className="text-muted-foreground font-poppins">Mentor & Advisor</div>
+          <div className="text-center group cursor-pointer">
+            <div className="text-3xl md:text-4xl font-orbitron font-bold text-accent mb-2 group-hover:text-secondary transition-all duration-300 group-hover:scale-110">
+              {counts.mentors}
+            </div>
+            <div className="text-muted-foreground font-poppins group-hover:text-foreground transition-colors duration-300">Mentor & Advisor</div>
           </div>
-           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-orbitron font-bold text-accent mb-2">06</div>
-            <div className="text-muted-foreground font-poppins">Events</div>
+           <div className="text-center group cursor-pointer">
+            <div className="text-3xl md:text-4xl font-orbitron font-bold text-accent mb-2 group-hover:text-primary transition-all duration-300 group-hover:scale-110">
+              {counts.events}
+            </div>
+            <div className="text-muted-foreground font-poppins group-hover:text-foreground transition-colors duration-300">Events</div>
           </div>
         </div>
       </div>
